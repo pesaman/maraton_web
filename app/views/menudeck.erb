@@ -1,12 +1,19 @@
-  <h1>Bienvenido Maraton de Preguntas!</h1>
- 
+<h1>¡Bienvenido a Maratón!</h1>
+<hr/>
+<ul>
+    <li> <a href="/all_scores" ><button id="sesion" type="button">Ver mis scores</button></a> </li>
+    <li> <a href="/logout" ><button id="sesion" type="button">Salir</button></a> </li>
+</ul>
     <div>
-    <div>ººººººººººººººººººººººººººº ELIGE UNA CATEGORIA ººººººººººººººººººººººººººº</div>
-    <hr/>
-    <ul>
-    <li> <a href="/registrar" ><button id="sesion" type="button">History</button></a> </li>
-    <li> <a href="/registrar" ><button id="sesion" type="button">Geography</button></a> </li>
-    <li> <a href="/registrar" ><button id="sesion" type="button">Football</button></a> </li>
-    <li> <a href="/registrar" ><button id="sesion" type="button">Salir</button></a> </li>
-    </ul>
-    </div>
+<div class="center">
+    <p>ººººººººººººººººººººººººººº Elige una categoríaººººººººººººººººººººººººººº</p>
+</div>
+
+<ul>
+    <% @decks.each do |deck|%>
+       <li> <a href="/show_deck/<%= deck.id %>" ><%= deck.name %></a> </li>
+    <%end%>
+</ul>
+</div>
+
+  

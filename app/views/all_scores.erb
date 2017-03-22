@@ -1,0 +1,47 @@
+<div>
+    <ul>
+      <li> <a href="/menudeck" ><button id="sesion" type="button">Jugar</button></a> </li>
+      <li> <a href="/logout" ><button id="sesion" type="button">Salir</button></a> </li>
+    </ul>
+</div>
+<% statistics_correct = [] %>
+<% statistics_incorrect = [] %>
+<% count1 = 0 %>
+<% count2 = 0 %>
+<% total_games = 0 %>
+<h2>Estos son todos tus resultados:</h2>
+<% @user_game.each do |game|%>
+     <%total_games +=1%>
+   <h3>Juego id:<%= game.id%></h3>
+   <% game.answer_games.each do |scores|%>
+     <%if scores.score == 1%>
+       <% count1 +=1 %>
+       <% statistics_correct << count1 %>
+     <% else%> 
+        <% count2 +=1 %>
+        <% statistics_incorrect << count2 %>
+     <% end%> 
+  <% end%>
+   <div>
+      <h4>Estadística de este juego:</h4>
+      <p>Respondiste correctamente el <%= (100*count1)/5 %>% de este juego</p>
+      <p>Respondiste incorrectamente el <%= (100*count2)/5 %>% de este juego</p>
+   </div> 
+     <% count1 =0 %> 
+     <% count2 =0 %> 
+<% end%>
+
+<div class="statistics">
+   <h3>Estadísticas:</h3>
+   <p>En total jugaste: <%= total_games%> veces</p>
+   <p>Respondiste correctamente el <%= (100*statistics_correct.length)/(total_games*5) %>% de todos tus juegos</p>
+   <p>Respondiste incorrectamente el <%= (100*statistics_incorrect.length)/(total_games*5) %>% de todos tus juegos</p>
+</div>
+
+
+
+
+
+
+
+

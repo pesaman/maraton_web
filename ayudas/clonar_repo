@@ -1,0 +1,16 @@
+CodeaCamp09s-Mac-mini:maraton codea_mac_09$ cd
+CodeaCamp09s-Mac-mini:~ codea_mac_09$ https://github.com/pesaman/maraton_web.git 
+CodeaCamp09s-Mac-mini:~ codea_mac_09$ cd /Users/codea_mac_09/Desktop/fase02/sem01/viernes 
+CodeaCamp09s-Mac-mini:viernes codea_mac_09$ git clone https://github.com/pesaman/maraton_web.git
+Cloning into 'maraton_web'...
+remote: Counting objects: 51, done.
+remote: Compressing objects: 100% (44/44), done.
+remote: Total 51 (delta 3), reused 51 (delta 3), pack-reused 0
+Unpacking objects: 100% (51/51), done.
+Checking connectivity... done.
+
+
+CodeaCamp09s-Mac-mini:maraton_web codea_mac_09$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean

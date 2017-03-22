@@ -1,5 +1,13 @@
+html{
+  background-color: #E6EDC4;
+}
+
+h1{
+   color: white;
+   text-align: center;
+}
 .container {
-  background-color:   #FFFF00;
+  background-color: #67A187;
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
@@ -11,10 +19,10 @@ th {
 
 ul {
     list-style-type: none;
-    margin: 0;
+    margin: auto 0;
     padding: 0;
     overflow: hidden;
-    background-color:  #9ACD32;
+    
 }
 
 li {
@@ -23,12 +31,62 @@ li {
 
 li a {
     display: inline-block;
-    color: white;
+   
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
+    color: white;
 }
 
 li a:hover {
     background-color: #D3D3D3;
+    color: #9069A1;
 } 
+
+
+.warning {
+  margin: 0 auto ;
+  display: block;
+  border: none;
+  color : black;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  background-color: #FFBABA;
+  width: 600px;
+}
+.correct {
+  margin: 0 auto ;
+  display: block;
+  border: none;
+  color : black;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  background-color: #7FFF00;
+  width: 600px;
+}
+
+ .regreso{
+  margin-top: 20px;
+ }
+ .regreso a{
+  color: white;
+  text-decoration: none;
+ }
+ .regreso a{
+  text-decoration: underline;
+ }
+
+ .center p{
+  text-align: center;
+  color: white;
+ }
+
+  .statistics{
+  color: white;
+  display: block;
+  width: 90%;
+  background-color: #9069A1;
+  padding: 30px;
+ }

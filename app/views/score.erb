@@ -1,0 +1,34 @@
+<div>
+    <ul>
+      <li> <a href="/all_scores" ><button id="sesion" type="button">Ver mis scores</button></a> </li>
+      <li> <a href="/menudeck" ><button id="sesion" type="button">Jugar</button></a> </li>
+      <li> <a href="/logout" ><button id="sesion" type="button">Salir</button></a> </li>
+    </ul>
+</div>
+<% statistics_correct = 0 %>
+<% statistics_incorrect = 0 %>
+<h2>Estos son los resultados de este juego:</h2>
+<% @options1.zip(@options2, @options3).each do |option1, option2, option3|%>
+   <p><b><%= option3.question%></b><br>
+   Tu respuesta fue 
+   <%if option2 == "t"%>
+     <b><%= "verdadera"%>:</b>
+     <% statistics_correct += 1 %>
+   <%else%>
+    <b><%= "falsa"%>:</b>
+    <% statistics_incorrect += 1 %>
+   <%end%><br>
+   <i><%=option1%></i>
+  </p>
+<%end%>
+
+<div class="statistics">
+   <h3>Estadísticas:</h3>
+   <p>Respondiste correctamente el <%= (100*statistics_correct)/5 %>%</p>
+   <p>Respondiste incorrectamente el <%= (100*statistics_incorrect)/5 %>%</p>
+</div>
+
+
+
+
+

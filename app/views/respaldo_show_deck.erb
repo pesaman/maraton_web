@@ -1,0 +1,69 @@
+ESTE ES EL ULTIMO DDEL SUPER HASH
+
+<h1><%= @deck.name %></h1>
+<form action="/result" method="post">
+<% @deck_questions.each_with_index do |question, index|%>
+  <h3><%= question.question %><br></h3>
+  <fieldset>
+    <% question.options.each do |option|%>
+     <input type="radio" name='[option<%= index+1 %>][<% option.answer%><%= question.id%>][game][<%= @gamelast.id%>]' value="<%= option.answer%>"> <%= option.option %><br>
+            
+    <%end%>
+  </fieldset>
+<%end%>
+<input type="submit" value="enviar"> 
+</form>
+
+
+post "/result" do
+  contador_buenas = 0
+  contador_malas = 0
+  questionid = []
+  p answer_value = params
+  answer_value.each do |key, value| 
+    questionid << value.keys
+    value.each do |question_id, answers|  
+      
+      
+       #@questionid << question_id.to_i
+      if answers == "t"    
+        contador_buenas += 1  
+      else 
+        contador_malas += 1 
+      end
+      #p @questionid
+    end
+ 
+  end
+ # AnswerGame.create(game_id: @game.id, question_id: questionid, user_answer: answers, score: contador_buenas) 
+#AnswerGame.create(game_id: @game.id, question_id: questionid, user_answer: answers, score: contador_buenas)
+  questionid.each do |id|
+    idquest = id[0].to_i
+   
+    #AnswerGame.create(game_id: @game.id, question_id: idquest, user_answer: answers, score: contador_buenas) 
+  end
+
+ 
+  redirect to '/menudeck'
+end
+
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+<h1><%= @deck.name %></h1>
+<form action="/result" method="post">
+<% @deck_questions.each_with_index do |question, index|%>
+  <h3><%= question.question %><br></h3>
+  <fieldset>
+    <% question.options.each do |option|%>
+     <input type="radio" name='[question.<% index+1 %>][<% option.answer%>][<%= question.id%>]' value="<%= option.answer%>"> <%= option.option %><br>
+            
+    <%end%>
+  </fieldset>
+<%end%>
+<input type="submit" value="enviar"> 
+</form>

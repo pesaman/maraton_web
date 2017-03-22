@@ -1,0 +1,51 @@
+irb(main):033:0> Option.find(6)
+D, [2017-03-17T13:12:11.057059 #1117] DEBUG -- :   Option Load (0.5ms)  SELECT  "options".* FROM "options" WHERE "options"."id" = $1 LIMIT $2  [["id", 6], ["LIMIT", 1]]
+=> #<Option id: 6, question_id: 2, option: "América", answer: "t", created_at: "2017-03-17 02:13:17", updated_at: "2017-03-17 02:13:17">
+irb(main):034:0> AnswerGame.last
+D, [2017-03-17T16:34:14.532579 #1117] DEBUG -- :   AnswerGame Load (4.3ms)  SELECT  "answer_games".* FROM "answer_games" ORDER BY "answer_games"."id" DESC LIMIT $1  [["LIMIT", 1]]
+=> #<AnswerGame id: 383, game_id: 15, question_id: 5, user_answer: 14, score: 4, created_at: "2017-03-17 22:26:13", updated_at: "2017-03-17 22:26:13">
+irb(main):035:0> AnswerGame.last.answer
+D, [2017-03-17T16:34:33.118767 #1117] DEBUG -- :   AnswerGame Load (0.8ms)  SELECT  "answer_games".* FROM "answer_games" ORDER BY "answer_games"."id" DESC LIMIT $1  [["LIMIT", 1]]
+NoMethodError: undefined method `answer' for #<AnswerGame:0x007fd61245d4a0>
+  from /Users/codea_mac_09/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/activemodel-5.0.2/lib/active_model/attribute_methods.rb:433:in `method_missing'
+  from (irb):35
+  from /Users/codea_mac_09/.rbenv/versions/2.2.4/bin/irb:11:in `<main>'
+irb(main):036:0> AnswerGame.last.user_answer
+D, [2017-03-17T16:35:19.455452 #1117] DEBUG -- :   AnswerGame Load (0.8ms)  SELECT  "answer_games".* FROM "answer_games" ORDER BY "answer_games"."id" DESC LIMIT $1  [["LIMIT", 1]]
+=> 14
+irb(main):037:0> number = AnswerGame.last.user_answer
+D, [2017-03-17T16:35:35.920443 #1117] DEBUG -- :   AnswerGame Load (0.6ms)  SELECT  "answer_games".* FROM "answer_games" ORDER BY "answer_games"."id" DESC LIMIT $1  [["LIMIT", 1]]
+=> 14
+irb(main):038:0> number
+=> 14
+irb(main):039:0> Option.find(number)
+D, [2017-03-17T16:35:48.417063 #1117] DEBUG -- :   Option Load (0.7ms)  SELECT  "options".* FROM "options" WHERE "options"."id" = $1 LIMIT $2  [["id", 14], ["LIMIT", 1]]
+=> #<Option id: 14, question_id: 5, option: "Indico", answer: "f", created_at: "2017-03-17 02:13:17", updated_at: "2017-03-17 02:13:17">
+irb(main):040:0> Option.find(number).o`ption
+irb(main):041:0` Option.find(number).option
+irb(main):042:0` ^C
+irb(main):042:0> Option.find(number).option
+D, [2017-03-17T16:36:07.655879 #1117] DEBUG -- :   Option Load (0.4ms)  SELECT  "options".* FROM "options" WHERE "options"."id" = $1 LIMIT $2  [["id", 14], ["LIMIT", 1]]
+=> "Indico"
+irb(main):043:0> 
+
+
+
+
+
+---------------------------
+
+
+Codigo para score.erb . En vez del que usé:
+
+@answer_game.each do |answer|
+ user_ans = answer.user_answer
+<p><b><%= answer.question %></b><br>
+Tu respuesta fue 
+   <%if Option.find(user_ans).option == "t"%>
+     <b><%= "verdadera"%></b>
+   <%else%>
+    <b><%= "falsa"%></b>
+   <%end%>:<br>
+   <i><%= Option.find(user_ans).answer %></i>
+  </p>
